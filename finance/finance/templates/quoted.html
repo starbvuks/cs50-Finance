@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+
+        <div class="form-group">
+            <p>
+                <h2>A Share of <b>{{ quote.name }}</b> Costs {{ quote.price | usd }}</h2>
+            </p>
+            <p>
+                <h6>(Your currently have {{ cash_owned | usd }} in your account)</h4>
+            </p>
+        </div>
+
+{% endblock %}

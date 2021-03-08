@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Bought
+{% endblock %}
+
+{% block main %}
+
+        <div class="form-group">
+            <p>
+                <h2>You Successfully Bought {{ shares }} Shares Of <b>{{ quote.name }}</b> For {{ total_price | usd }}</h2>
+            </p>
+            <p>
+                <h6>(Your currently have {{ updated_cash | usd }} in your account)</h4>
+            </p>
+        </div>
+
+{% endblock %}

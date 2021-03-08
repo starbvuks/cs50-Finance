@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.symbol }}</td>
+                    <td>{{ quote[transaction.symbol]["name"] }}</td>
+                    <td>{{ transaction.total_shares }}</td>
+                    <td>{{ quote[transaction.symbol]["price"] | usd }}</td>
+                    <td>{{ (quote[transaction.symbol]["price"] * transaction.total_shares) | usd }}</td>
+                </tr>
+            {% endfor %}
+
+            <tr>
+                <td colspan="4" >CASH</td>
+                <td>{{ cash_owned | usd}}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
